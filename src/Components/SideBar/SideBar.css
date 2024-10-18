@@ -1,0 +1,79 @@
+
+.sidebar {
+  height: 100vh; /* Yüksekliği tam ekran  */
+  width: 250px; /* Sabit genişlik */
+  background-color: #F5F7FA; /* Arka plan rengi */
+  color: #333; /* Yazı rengi */
+  transition: width 0.3s; /* Genişlik geçiş efekti */
+  overflow: hidden; /* Taşan içeriği gizle */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+  position: fixed; /* Sidebar'ı sabit tut */
+  z-index: 1000; /* Üst katmanda görünür olması için */
+}
+
+.sidebar.closed {
+  width: 80px; /* Kapalı durumdaki genişlik */
+}
+
+.sidebar ul {
+  list-style: none; /* Madde işaretlerini kaldır */
+  padding: 0; /* Padding'i sıfırla */
+  margin: 0; /* Margin'i sıfırla */
+}
+
+.sidebar li {
+  display: flex; /* Flexbox kullanarak içeriği hizala */
+  align-items: center; /* Dikey merkezleme */
+  padding: 15px 20px; /* İç boşluk */
+  cursor: pointer; /* İmleç işaretini göster */
+  transition: background-color 0.2s; /* Arka plan rengi geçişi */
+}
+
+.sidebar li.active {
+  background-color: #4A90E2; /* Aktif öğe arka plan rengi */
+  color: white; /* Aktif öğe yazı rengi */
+}
+
+.sidebar li:hover {
+  background-color: #DDE6F1; /* Üzerine gelindiğinde arka plan rengi */
+}
+
+.icon {
+  margin-right: 15px; /* Simge ile yazı arasına boşluk ekle */
+  font-size: 1.8rem; /* Simge boyutu */
+  color: #4A4A4A; /* Simge rengi */
+}
+
+.toggle-btn {
+  background-color: #4A90E2; /* Buton arka plan rengi */
+  color: white; /* Buton yazı rengi */
+  border: none; /* Kenarlık yok */
+  width: 100%; /* Tam genişlik */
+  padding: 10px; /* İç boşluk */
+  cursor: pointer; /* İmleç işaretini göster */
+  text-align: center; /* Metni ortala */
+  margin-bottom: 10px; /* Alt boşluk */
+  font-size: 1rem; /* Yazı boyutu */
+  transition: background-color 0.3s; /* Geçiş efekti */
+}
+
+.toggle-btn:hover {
+  background-color: #357ABD; /* Üzerine gelindiğinde buton rengi */
+}
+
+/* Yeni eklemeler */
+.main-content {
+  margin-left: 250px; /* Sidebar genişliğine eşit boşluk  */
+  padding: 20px; /* İçerik alanı için iç boşluk */
+  flex-grow: 1; /* Genişliği esnek  */
+}
+
+@media (max-width: 768px) { /* Mobil görünüm için */
+  .sidebar {
+    width: 200px; /* Mobilde daha dar genişlik */
+  }
+
+  .main-content {
+    margin-left: 200px; /* Mobilde sidebar genişliği kadar boşluk  */
+  }
+}
