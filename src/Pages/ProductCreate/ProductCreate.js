@@ -47,7 +47,7 @@ export const ProductCreate = () => {
         setPrice(0);
         setCategory('');
         setPhoto(null);
-        alert('Ürün başarıyla eklendi!');
+       
       }
     } catch (err) {
       const errorMessage = err.response?.data?.title || 'Bir hata oluştu.';

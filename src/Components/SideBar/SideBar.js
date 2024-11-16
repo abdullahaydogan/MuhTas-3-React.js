@@ -8,13 +8,15 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
+import PeopleIcon from "@mui/icons-material/People"; 
 
 const menuItems = [
   { name: "Home Page", icon: <HomeIcon />, path: "/" },
-  { name: "Log In", icon: <LoginIcon />, path: "/login" },
-  { name: "Sign Up", icon: <PersonAddIcon />, path: "/signup" },
+  { name: "Log In", icon: <LoginIcon />, path: "/logIn" },
+  { name: "Sign Up", icon: <PersonAddIcon />, path: "/signUp" },
   { name: "Add Product", icon: <AddBoxIcon />, path: "/productCreate" },
   { name: "My Products", icon: <InventoryIcon />, path: "/productList" },
+  { name: "User List", icon: <PeopleIcon />, path: "/userList" }, 
   { name: "Contact", icon: <ContactMailIcon />, path: "/contact" },
 ];
 

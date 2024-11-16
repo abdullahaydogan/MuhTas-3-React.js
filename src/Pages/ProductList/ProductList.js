@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { getProducts } from "../ProductList/ProductApiService";
 import {
-  Container,
   Grid,
   Card,
   CardContent,
@@ -35,9 +34,9 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://localhost:7079/api/Product");
-        setProducts(response.data);
-        setFilteredProducts(response.data);
+        const data = await getProducts();
+        setProducts(data);
+        setFilteredProducts(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -66,7 +65,7 @@ const ProductList = () => {
   if (error) return <Alert severity="error">Error: {error}</Alert>;
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4 }}>
+    <div style={{ padding: '16px', backgroundColor: 'transparent' }}>
       <SearchBar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -120,7 +119,7 @@ const ProductList = () => {
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </div>
   );
 };
 

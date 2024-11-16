@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { getProductById, deleteProduct } from "../ProductApiService";
 import {
   Container,
   Card,
@@ -22,10 +22,8 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(
-          `https://localhost:7079/api/Product/${id}`
-        );
-        setProduct(response.data);
+        const data = await getProductById(id);
+        setProduct(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -39,7 +37,7 @@ const ProductDetail = () => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete the product?")) {
       try {
-        await axios.delete(`https://localhost:7079/api/Product/${id}`);
+        await deleteProduct(id);
         alert("Product deleted successfully");
         navigate("/products");
       } catch (err) {
@@ -60,16 +58,16 @@ const ProductDetail = () => {
     <Container maxWidth="sm" sx={{ mt: 7 }}>
       <Card>
         {product.photo && (
-          <img
-            className="product-image"
-            src={`data:image/jpeg;base64,${product.photo}`}
+          <CardMedia
+            component="img"
+            image={`data:image/jpeg;base64,${product.photo}`}
             alt={product.name}
-            style={{
-              width: "100%", // Genişliği %100 yaparak kutunun tamamını kaplamasını sağlar
-              height: "auto", // Orantılı yükseklik için
-              borderRadius: "8px", // Kenarları yuvarlatır
-              objectFit: "cover", // Fotoğrafın alanı kaplamasını sağlar
-              maxHeight: "500px", // Fotoğraf yüksekliğini sınırlandırır
+            sx={{
+              width: "100%",
+              height: "auto",
+              borderRadius: "8px",
+              objectFit: "cover",
+              maxHeight: "500px",
             }}
           />
         )}

@@ -5,32 +5,32 @@ import ProductList from "../ProductList/ProductList";
 export const Home = () => {
   return (
     <Container maxWidth="lg" sx={{ mt: 4 }}>
-      <Box 
-        sx={{ 
-          backgroundColor: "#f9f9f9", // Açık gri arka plan
+      <Box
+        sx={{
+          backgroundColor: "#f9f9f9",
           borderRadius: 2,
-          boxShadow: 2, // Gölge efekti
-          padding: 3, // İçerik için boşluk
+          boxShadow: 2,
+          padding: 3,
         }}
       >
-        <Typography 
-          variant="h4" 
-          align="center" 
-          gutterBottom 
-          sx={{ 
-            color: "#3f51b5", // Başlık rengi
-            fontWeight: "bold", // Kalın başlık
-            textTransform: "uppercase", // Büyük harfle yazı
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          sx={{
+            color: "#3f51b5",
+            fontWeight: "bold",
+            textTransform: "uppercase",
           }}
         >
           Products
         </Typography>
-        <Typography 
-          variant="body1" 
-          align="center" 
-          sx={{ marginBottom: 3, color: "#666" }} // Açık gri alt yazı
+        <Typography
+          variant="body1"
+          align="center"
+          sx={{ marginBottom: 3, color: "#666" }}
         >
-          Explore our collection of amazing products. 
+          Explore our collection of amazing products.
         </Typography>
         <ProductList />
       </Box>
